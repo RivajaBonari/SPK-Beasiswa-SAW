@@ -46,7 +46,7 @@
         <!-- Sidebar scroll-->
         <div>
           <div class="brand-logo d-flex align-items-center justify-content-between">
-            <a href="./index.html" class="text-nowrap logo-img">
+            <a href="./index.php" class="text-nowrap logo-img">
               <img src="../assets/images/logos/logo1.png" alt="" />
             </a>
             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -61,7 +61,7 @@
                 <span class="hide-menu">Home</span>
               </li>
               <li class="sidebar-item">
-                <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                <a class="sidebar-link" href="./index.php" aria-expanded="false">
                   <i class="ti ti-atom"></i>
                   <span class="hide-menu">Dashboard</span>
                 </a>
@@ -69,6 +69,14 @@
               <!-- ---------------------------------- -->
               <!-- Dashboard -->
               <!-- ---------------------------------- -->
+
+              <li class="sidebar-item">
+              <a class="sidebar-link" href="./ui-card.php" aria-expanded="false">
+                <i class="ti ti-cards"></i>
+                <span class="hide-menu">Card</span>
+              </a>
+            </li>
+
 
               <li>
                 <span class="sidebar-divider lg"></span>
@@ -270,7 +278,7 @@
             </div>
 
             <div class="py-6 px-6 text-center">
-              <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank"
+              <p class="mb-0 fs-4">Design and Developed by <a href="https://github.com/RivajaBonari" target="_blank"
                   class="pe-1 text-primary text-decoration-underline">AdminMart.com</a></p>
             </div>
           </div>
