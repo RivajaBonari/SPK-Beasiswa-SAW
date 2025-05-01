@@ -31,13 +31,19 @@
                   echo '<div class="alert alert-danger text-center" role="alert">' . $_SESSION['error'] . '</div>';
                   unset($_SESSION['error']);
                 }
+                // untuk menampilkan pesan error 
+
+                // untuk menampilkan pesan jika berhasil buat akun
+                if (isset($_GET['register']) && $_GET['register'] == 'success') {
+                  echo "<div class='alert alert-success'>Pendaftaran berhasil! Silakan login.</div>";
+                }
+                // untuk menampilkan pesan jika berhasil buat akun
                 ?>
-                <!-- untuk menampilkan pesan error -->
 
                 <form action="../backend/authLogin.php" method="POST">
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input type="email" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Password</label>

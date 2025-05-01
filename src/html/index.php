@@ -1,13 +1,3 @@
-  <!-- untuk autentikasi supaya wajib login untuk mengakses web nya -->
-  <?php
-  session_start();
-  if (!isset($_SESSION['login'])) {
-    header("location:../html/authentication-login.php");
-    exit;
-  }
-  ?>
-  <!-- untuk autentikasi supaya wajib login untuk mengakses web nya -->
-
   <!doctype html>
   <html lang="en">
 
@@ -37,6 +27,16 @@
   </head>
 
   <body>
+    <!-- untuk autentikasi supaya wajib login untuk mengakses web nya -->
+    <?php
+    session_start();
+    if (!isset($_SESSION['login'])) {
+      header("location:../html/authentication-login.php");
+      exit;
+    }
+    ?>
+    <!-- untuk autentikasi supaya wajib login untuk mengakses web nya -->
+
     <!--  Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
       data-sidebar-position="fixed" data-header-position="fixed">
@@ -141,6 +141,10 @@
             </ul>
             <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
               <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+
+                <a href="#"
+                  class="btn btn-primary">Halo <?= $_SESSION['username']; ?> !</a>
+
                 <li class="nav-item dropdown">
                   <a class="nav-link " href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                     aria-expanded="false">

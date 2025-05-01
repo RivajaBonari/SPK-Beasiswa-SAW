@@ -3,18 +3,24 @@ include("config.php");
 session_start();
 
 $username = $_POST['username'];
+$email = $_POST['email'];
 $password = $_POST['password'];
 
-$sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
-$exe = $conn->query($sql);
-$banyak = $exe->num_rows;
+// Lakukan query ke database
+$query = "SELECT * FROM user WHERE email='$email' AND password='$password'";
+$result = mysqli_query($conn, $query);
 
-if ($banyak == 1) {
-    $_SESSION['username'] = $username;
+if (mysqli_num_rows($result) === 1) {
+    $data = mysqli_fetch_assoc($result);
+
+    // Simpan data ke session
+    $_SESSION['username'] = $data['username'];
     $_SESSION['login'] = true;
+
     header("Location: ../html/index.php");
+    exit;
 } else {
-    $_SESSION['error'] = "Username atau Password salah!";
-    header("Location: ../html/authentication-login.php");
+    // Login gagal
+    header("Location: ../html/authentication-login.php?error=1");
     exit;
 }
