@@ -60,8 +60,8 @@
           <div class="d-flex justify-content-between align-items-center mb-3">
             <!-- Tombol Tambah Data -->
             <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahModal">
-              <i class="ti ti-circle-plus"></i>
-              <span>Tambah Data🏆</span>
+              <i class="ti ti-pencil-plus"></i>
+              <span>Tambah Data</span>
             </a>
 
             <!-- Tombol Sort -->

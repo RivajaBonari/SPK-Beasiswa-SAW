@@ -34,14 +34,14 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="./pendaftaran.php" aria-expanded="false">
-                        <i class="ti ti-address-book"></i>
-                        <span class="hide-menu">Pendaftaran</span>
+                        <i class="ti ti-file-pencil"></i>
+                        <span class="hide-menu">Penilaian Alternatif</span>
                     </a>
                 </li>
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="./perangkingan.php" aria-expanded="false">
-                        <i class="ti ti-activity-heartbeat"></i>
+                        <i class="ti ti-badges"></i>
                         <span class="hide-menu">Perangkingan</span>
                     </a>
                 </li>
@@ -52,18 +52,28 @@
                 </li>
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu">Apps</span>
+                    <span class="hide-menu">Learning</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link justify-content-between" target="_blank"
-                        href="#" aria-expanded="false">
+                    <a class="sidebar-link justify-content-between"
+                        href="kriteriaBobot.php" aria-expanded="false">
                         <div class="d-flex align-items-center gap-3">
                             <span class="d-flex">
-                                <i class="ti ti-file-text"></i>
+                                <i class="ti ti-scale-outline"></i>
                             </span>
-                            <span class="hide-menu">Invoice</span>
+                            <span class="hide-menu">Kriteria dan Bobot</span>
                         </div>
-                        <span class="hide-menu badge text-bg-secondary fs-1 py-1">Pro</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link justify-content-between"
+                        href="tentang.php" aria-expanded="false">
+                        <div class="d-flex align-items-center gap-3">
+                            <span class="d-flex">
+                                <i class="ti ti-alert-circle"></i>
+                            </span>
+                            <span class="hide-menu">Tentang</span>
+                        </div>
                     </a>
                 </li>
 
