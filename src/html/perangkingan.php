@@ -148,19 +148,19 @@
                     </div>
                   </td>
                   <td>
-                    <p class="mb-0 fw-normal"><?= number_format($data['ipk_normalisasi'], 4) ?></p>
+                    <p class="mb-0 fw-normal"><?= number_format($data['ipk_normalisasi'], 2) ?></p>
                   </td>
                   <td>
-                    <p class="mb-0 fw-normal"><?= number_format($data['penghasilan_ortu_normalisasi'], 4) ?></p>
+                    <p class="mb-0 fw-normal"><?= number_format($data['penghasilan_ortu_normalisasi'], 2) ?></p>
                   </td>
                   <td>
-                    <p class="mb-0 fw-normal"><?= number_format($data['tanggungan_normalisasi'], 4) ?></p>
+                    <p class="mb-0 fw-normal"><?= number_format($data['tanggungan_normalisasi'], 2) ?></p>
                   </td>
                   <td>
-                    <p class="mb-0 fw-normal"><?= number_format($data['organisasi_normalisasi'], 4) ?></p>
+                    <p class="mb-0 fw-normal"><?= number_format($data['organisasi_normalisasi'], 2) ?></p>
                   </td>
                   <td>
-                    <p class="mb-0 fw-semibold"><?= number_format($data['nilai_akhir'], 4) ?></p>
+                    <p class="mb-0 fw-semibold"><?= number_format($data['nilai_akhir'], 2) ?></p>
                   </td>
                   <td>
                     <div class="dropdown dropstart">
@@ -171,11 +171,6 @@
                         <li>
                           <a class="dropdown-item d-flex align-items-center gap-3" href="detailHasil.php?id=<?= $data['id_perangkingan']; ?>">
                             <i class="fs-4 ti ti-eye"></i>Lihat Detail
-                          </a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item d-flex align-items-center gap-3" href="../aksi/deletePerangkingan.php?id=<?= $data['id_perangkingan']; ?>" onclick="return confirm('Yakin dihapus?')">
-                            <i class="fs-4 ti ti-trash"></i>Hapus
                           </a>
                         </li>
                       </ul>
@@ -215,23 +210,4 @@
   <!-- solar icons -->
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 </body>
-<script>
-  $(document).ready(function() {
-    $('.btn-edit').click(function() {
-      const npm = $(this).data('npm');
-      const nama = $(this).data('nama');
-      const gender = $(this).data('gender');
-      const telepon = $(this).data('telepon');
-      const alamat = $(this).data('alamat');
-
-      $('#edit_npm').val(npm);
-      $('#edit_nama_mahasiswa').val(nama);
-      $('#edit_gender').val(gender);
-      $('#edit_telepon').val(telepon);
-      $('#edit_alamat').val(alamat);
-    });
-  });
-</script>
-
-
 </html>

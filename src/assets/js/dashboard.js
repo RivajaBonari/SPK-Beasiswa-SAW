@@ -108,7 +108,7 @@ $(function () {
   // =====================================
   // Breakup
   // =====================================
-  var breakup = {
+  var breaakup = {
     color: "#adb5bd",
     series: [38, 40, 25],
     labels: ["2022", "2021", "2020"],
@@ -142,7 +142,7 @@ $(function () {
 
     responsive: [
       {
-        breakpoint: 991,
+        breaakpoint: 991,
         options: {
           chart: {
             width: 150,
@@ -156,7 +156,7 @@ $(function () {
     },
   };
 
-  var chart = new ApexCharts(document.querySelector("#breakup"), breakup);
+  var chart = new ApexCharts(document.querySelector("#breaup"), breaksup);
   chart.render();
 
 

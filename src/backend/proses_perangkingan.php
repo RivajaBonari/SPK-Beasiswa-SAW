@@ -1,7 +1,7 @@
 <?php
 include './config.php';
 
-// Ambil data hanya yang aktif
+// Ambil data mahasiswa yang aktif
 $query = "SELECT * FROM pendaftaran WHERE status = 'Aktif'";
 $result = mysqli_query($conn, $query);
 
@@ -16,93 +16,74 @@ if (count($data) === 0) {
     exit;
 }
 
-// Ambil data kriteria dan bobot dari tabel kriteria
+// Ambil kriteria dan bobot
 $queryKriteria = "SELECT * FROM kriteria";
 $resultKriteria = mysqli_query($conn, $queryKriteria);
 
-// Inisialisasi array untuk menyimpan informasi kriteria
 $kriteria = [];
 $bobot = [];
 $sifat = [];
 $namaField = [];
 
-while ($rowKriteria = mysqli_fetch_assoc($resultKriteria)) {
-    $id = $rowKriteria['id_kriteria'];
-    $field = $rowKriteria['nama_field'];
+while ($row = mysqli_fetch_assoc($resultKriteria)) {
+    $id = $row['id_kriteria'];
+    $field = $row['nama_field'];
     
-    $kriteria[$id] = $rowKriteria['nama_kriteria'];
+    $kriteria[$id] = $row['nama_kriteria'];
     $namaField[$id] = $field;
-    $sifat[$id] = $rowKriteria['sifat'];
-    
-    // Konversi bobot dari persen ke desimal
-    $bobot[$id] = $rowKriteria['bobot'] / 100;
+    $sifat[$id] = strtolower($row['sifat']); // jadi lowercase agar konsisten
+    $bobot[$id] = (float)$row['bobot']; // bobot sudah dalam bentuk desimal, jangan dibagi 100 lagi
 }
 
-// Inisialisasi nilai maksimum dan minimum untuk setiap kriteria
+// Hitung nilai max dan min untuk masing-masing field
 $maxValues = [];
 $minValues = [];
 
-// Cari nilai maksimum dan minimum untuk setiap kriteria
 foreach ($namaField as $id => $field) {
-    if ($field && isset($data[0][$field])) {
-        $values = array_column($data, $field);
-        $maxValues[$field] = max($values);
-        $minValues[$field] = min($values);
-    }
+    $column = array_column($data, $field);
+    $maxValues[$field] = max($column);
+    $minValues[$field] = min($column);
 }
 
-// Kosongkan tabel perangkingan terlebih dahulu
+// Kosongkan tabel perangkingan
 mysqli_query($conn, "TRUNCATE TABLE perangkingan");
 
-// Hitung nilai SAW dan simpan ke tabel perangkingan
+// Proses normalisasi dan perangkingan
 foreach ($data as $d) {
-    // Inisialisasi array untuk menyimpan nilai normalisasi
     $normalisasi = [];
     $nilaiAkhir = 0;
-    
-    // Hitung normalisasi untuk setiap kriteria
+
     foreach ($namaField as $id => $field) {
-        if ($field && isset($d[$field]) && isset($maxValues[$field]) && isset($minValues[$field])) {
-            $nilai = (float)$d[$field];
-            
-            // Normalisasi berdasarkan sifat (benefit/cost)
-            if ($sifat[$id] == 'benefit') {
-                // Untuk kriteria benefit, nilai lebih tinggi lebih baik
-                $normalisasi[$field] = $nilai / max($maxValues[$field], 1); // Hindari pembagian dengan 0
-            } else {
-                // Untuk kriteria cost, nilai lebih rendah lebih baik
-                $normalisasi[$field] = $minValues[$field] / max($nilai, 1); // Hindari pembagian dengan 0
-            }
-            
-            // Hitung nilai akhir dengan mengalikan normalisasi dengan bobot
-            $nilaiAkhir += $normalisasi[$field] * $bobot[$id];
-        } else {
-            $normalisasi[$field] = 0;
+        $nilai = (float)$d[$field];
+
+        // Normalisasi
+        if ($sifat[$id] == 'benefit') {
+            $n = $nilai / ($maxValues[$field] ?: 1); // hindari pembagian 0
+        } else { // cost
+            $n = ($minValues[$field] ?: 1) / ($nilai ?: 1);
         }
+
+        $normalisasi[$field] = $n;
+        $nilaiAkhir += $n * $bobot[$id];
     }
-    
-    // Siapkan data untuk disimpan ke tabel perangkingan
-    $fieldNames = [];
-    $fieldValues = [];
-    
-    $fieldNames[] = "id_pendaftaran";
-    $fieldValues[] = "'{$d['id_pendaftaran']}'";
-    
+
+    // Siapkan kolom dan nilai untuk insert
+    $fieldNames = ['id_pendaftaran'];
+    $fieldValues = ["'{$d['id_pendaftaran']}'"];
+
     foreach ($normalisasi as $field => $value) {
         $fieldNames[] = "{$field}_normalisasi";
-        $fieldValues[] = round($value, 4); // Pembulatan untuk menghindari angka yang terlalu panjang
+        $fieldValues[] = round($value, 4);
     }
-    
+
     $fieldNames[] = "nilai_akhir";
     $fieldValues[] = round($nilaiAkhir, 4);
-    
-    // Simpan ke tabel perangkingan
-    $sql = "INSERT INTO perangkingan (" . implode(", ", $fieldNames) . ") 
-            VALUES (" . implode(", ", $fieldValues) . ")";
-    
+
+    // Insert ke tabel perangkingan
+    $sql = "INSERT INTO perangkingan (" . implode(', ', $fieldNames) . ") VALUES (" . implode(', ', $fieldValues) . ")";
     mysqli_query($conn, $sql);
 }
 
-// Notifikasi dan redirect ke halaman perangkingan
+// Sukses
 echo "<script>alert('Proses perangkingan berhasil!'); window.location.href = '../html/perangkingan.php';</script>";
 ?>

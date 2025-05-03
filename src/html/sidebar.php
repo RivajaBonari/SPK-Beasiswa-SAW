@@ -38,6 +38,13 @@
                         <span class="hide-menu">Penilaian Alternatif</span>
                     </a>
                 </li>
+<!-- 
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="./normalisasi.php" aria-expanded="false">
+                    <i class="ti ti-math-x-divide-y-2"></i>
+                        <span class="hide-menu">Normalisasi Matrix</span>
+                    </a>
+                </li> -->
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="./perangkingan.php" aria-expanded="false">
