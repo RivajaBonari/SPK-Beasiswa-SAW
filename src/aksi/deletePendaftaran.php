@@ -1,5 +1,6 @@
 <?php
 include("../backend/config.php");
+session_start();
 
 if (isset($_GET['id'])) {
     $id_pendaftaran = $_GET['id'];
@@ -9,9 +10,10 @@ if (isset($_GET['id'])) {
     $stmt->bind_param("i", $id_pendaftaran);
 
     if ($stmt->execute()) {
-        // Berhasil hapus
-        header("Location: ../html/pendaftaran.php?pesan=hapus_berhasil");
-        exit();
+        include('../html/header.php');
+        $_SESSION['success'] = "Berhasil menghapus data alternatif!";
+        header("Location: ../html/pendaftaran.php");
+        exit;
     } else {
         echo "Gagal menghapus data: " . $stmt->error;
     }
@@ -21,4 +23,3 @@ if (isset($_GET['id'])) {
 } else {
     echo "ID tidak ditemukan.";
 }
-?>

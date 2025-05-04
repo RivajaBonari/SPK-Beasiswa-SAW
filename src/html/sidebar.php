@@ -33,18 +33,31 @@
                 </li>
 
                 <li class="sidebar-item">
+                    <a class="sidebar-link justify-content-between"
+                        href="kriteriaBobot.php" aria-expanded="false">
+                        <div class="d-flex align-items-center gap-3">
+                            <span class="d-flex">
+                                <i class="ti ti-scale-outline"></i>
+                            </span>
+                            <span class="hide-menu">Kriteria dan Bobot</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="./sub_kriteria.php" aria-expanded="false">
+                    <i class="ti ti-subtask"></i>
+                        <span class="hide-menu">Sub Kriteria</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="./pendaftaran.php" aria-expanded="false">
-                        <i class="ti ti-file-pencil"></i>
+                        <i class="ti ti-sum"></i>
                         <span class="hide-menu">Penilaian Alternatif</span>
                     </a>
                 </li>
-<!-- 
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="./normalisasi.php" aria-expanded="false">
-                    <i class="ti ti-math-x-divide-y-2"></i>
-                        <span class="hide-menu">Normalisasi Matrix</span>
-                    </a>
-                </li> -->
+
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="./perangkingan.php" aria-expanded="false">
@@ -61,17 +74,7 @@
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Learning</span>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link justify-content-between"
-                        href="kriteriaBobot.php" aria-expanded="false">
-                        <div class="d-flex align-items-center gap-3">
-                            <span class="d-flex">
-                                <i class="ti ti-scale-outline"></i>
-                            </span>
-                            <span class="hide-menu">Kriteria dan Bobot</span>
-                        </div>
-                    </a>
-                </li>
+
                 <li class="sidebar-item">
                     <a class="sidebar-link justify-content-between"
                         href="tentang.php" aria-expanded="false">

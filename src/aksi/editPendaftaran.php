@@ -1,5 +1,6 @@
 <?php
 include("../backend/config.php");
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Ambil data dari form
@@ -25,9 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sdiissi", $npm, $ipk, $penghasilan_ortu, $tanggungan, $organisasi, $status, $id_pendaftaran);
 
     if ($stmt->execute()) {
-        // Berhasil update
-        header("Location: ../html/pendaftaran.php?pesan=update_berhasil");
-        exit();
+        include('../html/header.php');
+        $_SESSION['success'] = "Berhasil mengubah data alternatif!";
+        header("Location: ../html/pendaftaran.php");
+        exit;
     } else {
         echo "Gagal update data: " . $stmt->error;
     }
@@ -37,4 +39,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo "Metode tidak diizinkan.";
 }
-?>

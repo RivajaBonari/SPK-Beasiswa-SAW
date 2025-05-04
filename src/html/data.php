@@ -192,7 +192,7 @@
 
           <!-- Modal Tambah Data Mahasiswa -->
           <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-dialog modal-md modal-dialog-centered">
               <form action="../aksi/tambahMhs.php" method="POST">
                 <div class="modal-content">
                   <div class="modal-header bg-primary text-white">

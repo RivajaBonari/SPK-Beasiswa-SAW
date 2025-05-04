@@ -35,6 +35,7 @@
     exit;
   }
   ?>
+  
   <!-- untuk autentikasi supaya wajib login untuk mengakses web nya -->
 
   <!--  Body Wrapper -->
@@ -142,7 +143,7 @@
                     <div class="d-flex align-items-center">
                       <img src="../assets/images/profile/user-2.jpg" class="rounded-circle" width="40" height="40">
                       <div class="ms-3">
-                        <h6 class="fs-4 fw-semibold mb-0">#<?= $data['id_pendaftaran']; ?></h6>
+                        <h6 class="fs-4 fw-semibold mb-0"><?= $data['id_pendaftaran']; ?></h6>
                         <span class="fw-normal">Ranking ID: <?= $data['id_perangkingan']; ?></span>
                       </div>
                     </div>

@@ -1,10 +1,11 @@
 <?php
 // Koneksi ke database
 include("../backend/config.php");
+session_start();
 
 // Pastikan data yang diperlukan ada dalam request POST
 if (isset($_POST['npm']) && isset($_POST['ipk']) && isset($_POST['penghasilan_ortu']) && isset($_POST['tanggungan']) && isset($_POST['organisasi']) && isset($_POST['status'])) {
-    
+
     // Menangkap data yang dikirimkan melalui form
     $npm = $_POST['npm'];
     $ipk = $_POST['ipk'];
@@ -24,9 +25,10 @@ if (isset($_POST['npm']) && isset($_POST['ipk']) && isset($_POST['penghasilan_or
 
         // Eksekusi statement
         if ($stmt->execute()) {
-            // Jika berhasil, alihkan ke halaman daftar pendaftaran atau berikan notifikasi
-            header("Location: ../html/pendaftaran.php?status=success");
-            exit();
+            include('../html/header.php');
+            $_SESSION['success'] = "Berhasil menambah data alternatif!";
+            header("Location: ../html/pendaftaran.php");
+            exit;
         } else {
             // Jika gagal, beri notifikasi atau alihkan ke halaman dengan pesan error
             echo "Terjadi kesalahan saat menyimpan data.";
@@ -42,4 +44,3 @@ if (isset($_POST['npm']) && isset($_POST['ipk']) && isset($_POST['penghasilan_or
     // Jika data tidak lengkap
     echo "Data tidak lengkap.";
 }
-?>
