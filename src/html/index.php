@@ -84,14 +84,6 @@
                     <div class="mb-3 mb-sm-0">
                       <h5 class="card-title fw-semibold">Dashboard Perangkingan 🏆</h5>
                     </div>
-                    <div>
-                      <select class="form-select">
-                        <option value="1">March 2025</option>
-                        <option value="2">April 2025</option>
-                        <option value="3">May 2025</option>
-                        <option value="4">June 2025</option>
-                      </select>
-                    </div>
                   </div>
                   <div id="perangkingan"></div>
                 </div>
@@ -128,7 +120,7 @@
                   </div>
                 </div>
 
-                <div class="col-lg-12">
+                <!-- <div class="col-lg-12">
                   <div class="card">
                     <div class="card-body">
                       <div class="row align-items-start">
@@ -154,7 +146,7 @@
                       <div id="earning"></div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -225,7 +217,23 @@
           data: dataValues,
         }],
         xaxis: {
-          categories: dataLabels
+          categories: dataLabels,
+          title: {
+            text: 'Alternatif berdasarkan id_alternatif',
+            style: {
+              fontSize: '14px',
+              fontWeight: 'bold'
+            }
+          }
+        },
+        yaxis: {
+          title: {
+            text: 'Nilai Akhir',
+            style: {
+              fontSize: '14px',
+              fontWeight: 'bold'
+            }
+          }
         },
         title: {
           text: 'Grafik Perangkingan Mahasiswa',
@@ -237,6 +245,7 @@
       chart.render();
     });
   </script>
+
 
   <!-- Scripts -->
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>

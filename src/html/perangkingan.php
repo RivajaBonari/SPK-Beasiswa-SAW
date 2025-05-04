@@ -116,7 +116,7 @@
             <thead class="text-dark fs-4">
               <tr>
                 <th>
-                  <h6 class="fs-4 fw-semibold mb-0">ID Pendaftaran</h6>
+                  <h6 class="fs-4 fw-semibold mb-0">ID Alternatif</h6>
                 </th>
                 <th>
                   <h6 class="fs-4 fw-semibold mb-0">IPK</h6>
