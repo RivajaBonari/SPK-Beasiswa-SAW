@@ -25,12 +25,6 @@
                 <!-- ---------------------------------- -->
                 <!-- Dashboard -->
                 <!-- ---------------------------------- -->
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="./data.php" aria-expanded="false">
-                        <i class="ti ti-file-text"></i>
-                        <span class="hide-menu">Data Mahasiswa</span>
-                    </a>
-                </li>
 
                 <li class="sidebar-item">
                     <a class="sidebar-link justify-content-between"
@@ -48,6 +42,13 @@
                     <a class="sidebar-link" href="./sub_kriteria.php" aria-expanded="false">
                     <i class="ti ti-subtask"></i>
                         <span class="hide-menu">Sub Kriteria</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="./data.php" aria-expanded="false">
+                        <i class="ti ti-file-text"></i>
+                        <span class="hide-menu">Data Mahasiswa</span>
                     </a>
                 </li>
 
