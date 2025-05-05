@@ -10,6 +10,7 @@
     <style>
         .brand-logo {
             padding: 20px;
+            padding-left: 43px;
             border-bottom: 1px solid #e0e0e0;
             background-color: #ffffff;
         }

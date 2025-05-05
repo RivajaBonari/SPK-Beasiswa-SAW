@@ -295,6 +295,19 @@ h3,
     font-size: 1.53125rem;
   }
 }
+.brand-logo {
+    padding: 20px;
+    padding-left: 60px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #ffffff;
+}
+
+.brand-logo .logo-img img {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+    transform: scale(1.5);
+}
 
 h4,
 .h4 {
